@@ -28,37 +28,35 @@ public class Utils {
         ArrayList<ElectionResult> dataList = new ArrayList<>();
 
         String diff = "";
-        String firstPart = "";
-        String secondPart = "";
         String finalToParse = "";
 
         for (int i = 1; i < results.length; i++) {
-            System.out.println(i);
             String line = results[i];
 
             if (quoteIndex(line, 1) != -1 && quoteIndex(line, 2) != -1) {
                 diff = line.substring(quoteIndex(line, 1), quoteIndex(line, 2) + 1);
-                firstPart = line.substring(0, quoteIndex(line, 1));
-                secondPart = line.substring(quoteIndex(line, 2) + 1);
-                finalToParse = firstPart + secondPart;
-                finalToParse = removeDuplicates(finalToParse.replaceAll("\\s+",""), ',');
+                finalToParse = removeDuplicates(line.substring(0, quoteIndex(line, 1)) +
+                        line.substring(quoteIndex(line, 2) + 1).replaceAll("\\s+", ""), ',');
             }
 
-            String[] arguments = line.split(",");
-            System.out.println(Arrays.toString(arguments));
+            String[] scores = finalToParse.split(",");
+            System.out.println(Arrays.toString(scores));
 
-//            System.out.println("first part: ");
-//            System.out.println(firstPart);
-//            System.out.println("second part: ");
-//            System.out.println(secondPart);
-//            System.out.println("total: ");
-//            System.out.println(finalToParse);
-//            System.out.println("diff:");
-//            System.out.println(diff);
-//            System.out.println();
-//            System.out.println();
+            dataList.add(new ElectionResult(
+                    (int) Double.parseDouble(scores[1]),
+                    (int) Double.parseDouble(scores[2]),
+                    (int) Double.parseDouble(scores[3]),
+                    Double.parseDouble(scores[4]),
+                    Double.parseDouble(scores[5]),
+                    diff,
+                    Double.parseDouble(scores[6].replaceAll("%", "")) / 100,
+                    scores[7],
+                    scores[8],
+                    Integer.parseInt(scores[9])
+            ));
+
         }
-        return null;
+        return dataList;
     }
 
     private static String removeDuplicates(String line, char regex) {
@@ -90,7 +88,7 @@ public class Utils {
         String[] data = resultsFile.split("\n");
         ArrayList<ElectionResult> dataList = new ArrayList<>();
         for (int i = 1; i < data.length; i++) {
-            System.out.println(data[i].replaceAll("\\s+","").length());
+            System.out.println(data[i].replaceAll("\\s+", "").length());
             String[] scores = split(data[i].replaceAll("\\s+", ""));
             System.out.println(scores.length);
             dataList.add(new ElectionResult(
@@ -100,7 +98,7 @@ public class Utils {
                     Double.parseDouble(scores[4]),
                     Double.parseDouble(scores[5]),
                     scores[6],
-                    Double.parseDouble(scores[7].replaceAll("%","")) / 100,
+                    Double.parseDouble(scores[7].replaceAll("%", "")) / 100,
                     scores[8],
                     scores[9],
                     Integer.parseInt(scores[10])
@@ -127,7 +125,7 @@ public class Utils {
 /**
  * 1, 2,  3, 4
  * 0, 1,  2, 3
- *
+ * <p>
  * 1, 23, 4
  * 0, 1,  2
  */
