@@ -22,6 +22,69 @@ public class Utils {
         return output.toString();
     }
 
+    public static ArrayList<ElectionResult> parseData() {
+
+        String[] results = readFileAsString("data" + File.separator + "2016_Presidential_Results.csv").split("\n");
+        ArrayList<ElectionResult> dataList = new ArrayList<>();
+
+        String diff = "";
+        String firstPart = "";
+        String secondPart = "";
+        String finalToParse = "";
+
+        for (int i = 1; i < results.length; i++) {
+            System.out.println(i);
+            String line = results[i];
+
+            if (quoteIndex(line, 1) != -1 && quoteIndex(line, 2) != -1) {
+                diff = line.substring(quoteIndex(line, 1), quoteIndex(line, 2) + 1);
+                firstPart = line.substring(0, quoteIndex(line, 1));
+                secondPart = line.substring(quoteIndex(line, 2) + 1);
+                finalToParse = firstPart + secondPart;
+                finalToParse = removeDuplicates(finalToParse.replaceAll("\\s+",""), ',');
+            }
+
+            String[] arguments = line.split(",");
+            System.out.println(Arrays.toString(arguments));
+
+//            System.out.println("first part: ");
+//            System.out.println(firstPart);
+//            System.out.println("second part: ");
+//            System.out.println(secondPart);
+//            System.out.println("total: ");
+//            System.out.println(finalToParse);
+//            System.out.println("diff:");
+//            System.out.println(diff);
+//            System.out.println();
+//            System.out.println();
+        }
+        return null;
+    }
+
+    private static String removeDuplicates(String line, char regex) {
+        String out = "";
+        for (int i = 0; i < line.length() - 1; i++) {
+            if (line.charAt(i) == regex && line.charAt(i + 1) == regex) {
+                i++;
+            }
+            out += line.charAt(i);
+        }
+        return out;
+    }
+
+    private static int quoteIndex(String line, int count) {
+        int quoteCount = 0;
+        for (int i = 0; i < line.length(); i++) {
+            if (line.charAt(i) == '"') {
+                quoteCount++;
+                if (quoteCount == count) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
     public static ArrayList<ElectionResult> parse2016PresidentialResults() {
         String resultsFile = readFileAsString("data" + File.separator + "2016_Presidential_Results.csv");
         String[] data = resultsFile.split("\n");
