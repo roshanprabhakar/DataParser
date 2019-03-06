@@ -40,15 +40,13 @@ public class Utils {
             }
 
             String[] scores = finalToParse.split(",");
-            System.out.println(Arrays.toString(scores));
-
             dataList.add(new ElectionResult(
                     (int) Double.parseDouble(scores[1]),
                     (int) Double.parseDouble(scores[2]),
                     (int) Double.parseDouble(scores[3]),
                     Double.parseDouble(scores[4]),
                     Double.parseDouble(scores[5]),
-                    diff,
+                    diff.replaceAll("\"", "").replaceAll(",",""),
                     Double.parseDouble(scores[6].replaceAll("%", "")) / 100,
                     scores[7],
                     scores[8],
