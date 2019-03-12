@@ -30,10 +30,14 @@ public class Utils {
         for (int j = 8; j < results.length; j++) {
 
             String line = "\"" + results[j].replaceAll("\\s+", "") + "\"";
-            String[] finalToParse = parseCSVData(line);
+            String[] finalToParse = parseCSVData(line); //need indexes 42 to 44
 
-            System.out.println(Arrays.toString(finalToParse));
-
+            dataList.add(new UnemploymentData(
+                    Integer.parseInt(finalToParse[42]),
+                    Integer.parseInt(finalToParse[43]),
+                    Integer.parseInt(finalToParse[44]),
+                    Double.parseDouble(finalToParse[45])
+            ));
         }
 
         return dataList;
