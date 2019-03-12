@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<EducationData> results = Utils.parseEducationData("Education.csv");
-        for (EducationData data : results) {
+        ArrayList<UnemploymentData> results = Utils.parseDataUnemployment("Unemployment.csv");
+        for (UnemploymentData data : results) {
             System.out.println(data);
         }
     }

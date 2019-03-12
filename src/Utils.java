@@ -22,7 +22,23 @@ public class Utils {
         return output.toString();
     }
 
+    public static ArrayList<UnemploymentData> parseDataUnemployment(String file) {
 
+        String[] results = readFileAsString("data" + File.separator + file).split("\n");
+        ArrayList<UnemploymentData> dataList = new ArrayList<>();
+
+        for (int j = 8; j < results.length; j++) {
+
+            String line = "\"" + results[j].replaceAll("\\s+", "") + "\"";
+            String[] finalToParse = parseCSVData(line);
+
+            System.out.println(Arrays.toString(finalToParse));
+
+        }
+
+        return dataList;
+
+    }
 
     public static ArrayList<EducationData> parseEducationData(String file) {
 
@@ -32,29 +48,7 @@ public class Utils {
         for (int j = 5; j < results.length; j++) {
 
             String line = "\"" + results[j].replaceAll("\\s+", "") + "\"";
-
-            ArrayList<Integer> quoteLocs = findQuotes(line); //always only pairs
-
-            ArrayList<String> parts = new ArrayList<>();
-
-            boolean middle = true; // if index is in middle of weird data
-            for (int i = 0; i < quoteLocs.size() - 1; i++) {
-
-                if (middle) {
-                    parts.add(line.substring(quoteLocs.get(i), quoteLocs.get(i + 1) + 1));
-                } else {
-                    parts.add(line.substring(quoteLocs.get(i), quoteLocs.get(i + 1) + 1).replaceAll(",", ""));
-                }
-                middle = !middle;
-            }
-
-            String finalLine = "";
-            for (int i = 0; i < parts.size(); i++) {
-                if (parts.get(i).replaceAll(",","").equals("")) continue;
-                finalLine += parts.get(i).replaceAll("\"", "");
-            }
-
-            String[] finalToParse = finalLine.split(","); //need 11, 12, 13, 14
+            String[] finalToParse = parseCSVData(line);
 
             if (finalToParse[11].equals("") || finalToParse[12].equals("") || finalToParse[13].equals("") || finalToParse[14].equals("")) continue;
             dataList.add(new EducationData(
@@ -66,6 +60,34 @@ public class Utils {
         }
 
         return dataList;
+    }
+
+    //dealing with quotations
+    private static String[] parseCSVData(String line) {
+
+        ArrayList<Integer> quoteLocs = findQuotes(line); //always only pairs
+        ArrayList<String> parts = new ArrayList<>();
+
+        boolean middle = true; // if index is in middle of weird data
+        for (int i = 0; i < quoteLocs.size() - 1; i++) {
+
+            if (middle) {
+                parts.add(line.substring(quoteLocs.get(i), quoteLocs.get(i + 1) + 1));
+            } else {
+                parts.add(line.substring(quoteLocs.get(i), quoteLocs.get(i + 1) + 1).replaceAll(",", ""));
+            }
+            middle = !middle;
+        }
+
+        String finalLine = "";
+        for (int i = 0; i < parts.size(); i++) {
+            if (parts.get(i).replaceAll(",","").equals("")) continue;
+            finalLine += parts.get(i).replaceAll("\"", "");
+        }
+
+        String[] finalToParse = finalLine.split(","); //need 11, 12, 13, 14
+
+        return finalToParse;
     }
 
     private static ArrayList<Integer> findQuotes(String line) {
