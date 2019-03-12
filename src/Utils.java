@@ -32,6 +32,8 @@ public class Utils {
             String line = "\"" + results[j].replaceAll("\\s+", "") + "\"";
             String[] finalToParse = parseCSVData(line); //need indexes 42 to 44
 
+            if (finalToParse.length != 52) continue;
+
             dataList.add(new UnemploymentData(
                     Integer.parseInt(finalToParse[42]),
                     Integer.parseInt(finalToParse[43]),

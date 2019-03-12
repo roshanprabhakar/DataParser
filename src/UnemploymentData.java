@@ -44,5 +44,8 @@ public class UnemploymentData {
         this.unemployment_rate2016 = unemployment_rate2016;
     }
 
-    public String toString
+    public String toString() {
+        return "civilian_labour_force2016: " + civilian_labour_force2016 + " employed2016: " + employed_2016 +
+                " unemployed2016: " + unemployed_2016 + " unemployment_rate2016: " + unemployed_2016;
+    }
 }
