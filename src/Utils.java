@@ -52,8 +52,15 @@ public class Utils {
                 finalLine += parts.get(i).replaceAll("\"", "");
             }
 
-            String[] finalToParse = finalLine.split(",");
-            System.out.println(Arrays.toString(finalToParse));
+            String[] finalToParse = finalLine.split(","); //need 11, 12, 13, 14
+
+            if (finalToParse[11].equals("") || finalToParse[12].equals("") || finalToParse[13].equals("") || finalToParse[14].equals("")) continue;
+            dataList.add(new EducationData(
+                    Double.parseDouble(finalToParse[11]),
+                    Double.parseDouble(finalToParse[12]),
+                    Double.parseDouble(finalToParse[13]),
+                    Double.parseDouble(finalToParse[14])
+            ));
         }
 
         return dataList;

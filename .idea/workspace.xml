@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a24b6a03-7c91-4435-9be9-ec624f1e3b67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/Education.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/Education.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EducationData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EducationData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -28,14 +29,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7033" />
-          <entry key="txt" value="281" />
+          <entry key="java" value="7519" />
+          <entry key="txt" value="301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7033" />
-          <entry key="PLAIN_TEXT" value="281" />
+          <entry key="JAVA" value="7519" />
+          <entry key="PLAIN_TEXT" value="301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -57,17 +58,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="85" selection-start-line="5" selection-start-column="85" selection-end-line="5" selection-end-column="85" />
+            <state relative-caret-position="135">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="62" />
+            <state relative-caret-position="486">
+              <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,8 +79,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EducationData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-90">
-              <caret column="9" selection-start-column="9" selection-end-column="9" />
+            <state relative-caret-position="540">
+              <caret line="46" column="162" selection-start-line="46" selection-start-column="162" selection-end-line="46" selection-end-column="162" />
               <folding>
                 <element signature="e#444#445#0" expanded="true" />
                 <element signature="e#478#479#0" expanded="true" />
@@ -102,11 +103,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data/Education.csv">
           <provider selected="true" editor-type-id="csv-text-editor">
-            <state relative-caret-position="47937">
-              <caret line="3197" column="2223" lean-forward="true" selection-start-line="3197" selection-start-column="2223" selection-end-line="3197" selection-end-column="2223" />
+            <state relative-caret-position="312">
+              <caret line="76" column="242" lean-forward="true" selection-start-line="76" selection-start-column="242" selection-end-line="76" selection-end-column="242" />
             </state>
           </provider>
         </entry>
@@ -128,10 +129,10 @@
       <list>
         <option value="$PROJECT_DIR$/data/2016_Presidential_Results.csv" />
         <option value="$PROJECT_DIR$/src/ElectionResult.java" />
+        <option value="$PROJECT_DIR$/data/Education.csv" />
         <option value="$PROJECT_DIR$/src/EducationData.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Utils.java" />
-        <option value="$PROJECT_DIR$/data/Education.csv" />
       </list>
     </option>
   </component>
@@ -179,7 +180,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552366311021" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552366843451" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -230,7 +231,7 @@
       <workItem from="1551765508324" duration="2000" />
       <workItem from="1551842910511" duration="301000" />
       <workItem from="1552066344988" duration="50000" />
-      <workItem from="1552355070551" duration="8414000" />
+      <workItem from="1552355070551" duration="8884000" />
     </task>
     <task id="LOCAL-00001" summary="added dara dir">
       <created>1551420365592</created>
@@ -302,11 +303,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552365576551</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="deleted useless data">
+      <created>1552366382743</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1552366382743</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18136000" />
+    <option name="totallyTimeSpent" value="18606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
@@ -362,7 +370,8 @@
     <MESSAGE value="removed unnecessary methods" />
     <MESSAGE value="fixed formatting for diff field" />
     <MESSAGE value="separated into individual numbers in the line" />
-    <option name="LAST_COMMIT_MESSAGE" value="separated into individual numbers in the line" />
+    <MESSAGE value="deleted useless data" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleted useless data" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/data/Unemployment.csv">
@@ -390,15 +399,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="85" selection-start-line="5" selection-start-column="85" selection-end-line="5" selection-end-column="85" />
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/Education.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="312">
+          <caret line="76" column="242" lean-forward="true" selection-start-line="76" selection-start-column="242" selection-end-line="76" selection-end-column="242" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EducationData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-90">
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        <state relative-caret-position="540">
+          <caret line="46" column="162" selection-start-line="46" selection-start-column="162" selection-end-line="46" selection-end-column="162" />
           <folding>
             <element signature="e#444#445#0" expanded="true" />
             <element signature="e#478#479#0" expanded="true" />
@@ -422,22 +441,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="55" column="12" selection-start-line="55" selection-start-column="12" selection-end-line="55" selection-end-column="62" />
+        <state relative-caret-position="486">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/Education.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="47937">
-          <caret line="3197" column="2223" lean-forward="true" selection-start-line="3197" selection-start-column="2223" selection-end-line="3197" selection-end-column="2223" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
   </component>
