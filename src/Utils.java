@@ -22,9 +22,54 @@ public class Utils {
         return output.toString();
     }
 
-    public static ArrayList<ElectionResult> parseData() {
+    public static ArrayList<EducationData> parseEducationData(String file) {
 
-        String[] results = readFileAsString("data" + File.separator + "2016_Presidential_Results.csv").split("\n");
+        String[] results = readFileAsString("data" + File.separator + file).split("\n");
+        ArrayList<EducationData> dataList = new ArrayList<>();
+
+        for (int j = 5; j < results.length; j++) {
+
+            String line = "\"" + results[j].replaceAll("\\s+", "") + "\"";
+
+            ArrayList<Integer> quoteLocs = findQuotes(line); //always only pairs
+
+            ArrayList<String> parts = new ArrayList<>();
+
+            boolean middle = true; // if index is in middle of weird data
+            for (int i = 0; i < quoteLocs.size() - 1; i++) {
+
+                if (middle) {
+                    parts.add(line.substring(quoteLocs.get(i), quoteLocs.get(i + 1) + 1));
+                } else {
+                    parts.add(line.substring(quoteLocs.get(i), quoteLocs.get(i + 1) + 1).replaceAll(",", ""));
+                }
+                middle = !middle;
+            }
+
+            String finalLine = "";
+            for (int i = 0; i < parts.size(); i++) {
+                if (parts.get(i).replaceAll(",","").equals("")) continue;
+                finalLine += parts.get(i).replaceAll("\"", "") + ",";
+            }
+
+            String[] finalToParse = finalLine.split(",");
+            System.out.println(Arrays.toString(finalToParse));
+        }
+
+        return dataList;
+    }
+
+    private static ArrayList<Integer> findQuotes(String line) {
+        ArrayList<Integer> out = new ArrayList<>();
+        for (int i = 0; i < line.length(); i++) {
+            if (line.charAt(i) == '\"') out.add(i);
+        }
+        return out;
+    }
+
+    public static ArrayList<ElectionResult> parseElectionData(String file) {
+
+        String[] results = readFileAsString("data" + File.separator + file).split("\n");
         ArrayList<ElectionResult> dataList = new ArrayList<>();
 
         String diff = "";
@@ -46,7 +91,7 @@ public class Utils {
                     (int) Double.parseDouble(scores[3]),
                     Double.parseDouble(scores[4]),
                     Double.parseDouble(scores[5]),
-                    diff.replaceAll("\"", "").replaceAll(",",""),
+                    diff.replaceAll("\"", "").replaceAll(",", ""),
                     Double.parseDouble(scores[6].replaceAll("%", "")) / 100,
                     scores[7],
                     scores[8],
