@@ -22,6 +22,8 @@ public class Utils {
         return output.toString();
     }
 
+
+
     public static ArrayList<EducationData> parseEducationData(String file) {
 
         String[] results = readFileAsString("data" + File.separator + file).split("\n");
