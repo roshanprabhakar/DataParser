@@ -49,7 +49,7 @@ public class Utils {
             String finalLine = "";
             for (int i = 0; i < parts.size(); i++) {
                 if (parts.get(i).replaceAll(",","").equals("")) continue;
-                finalLine += parts.get(i).replaceAll("\"", "") + ",";
+                finalLine += parts.get(i).replaceAll("\"", "");
             }
 
             String[] finalToParse = finalLine.split(",");
