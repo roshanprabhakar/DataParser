@@ -162,4 +162,38 @@ public class Utils {
         }
         return -1;
     }
+
+
+    //REQUESTED METHODS
+    public static UnemploymentData parseUnemploymentDataVirginia(String file) {
+
+        String[] results = readFileAsString("data" + File.separator + file).split("\n");
+
+        int civilian_labour_force2016 = 0;
+        int employed_2016 = 0;
+        int unemployed_2016 = 0;
+        double unemployment_rate2016 = 0;
+
+        int count = 0;
+
+        for (int i = 8; i < results.length; i++) {
+
+            String line = "\"" + results[i].replaceAll("\\s+", "") + "\"";
+            String[] toParse = parseCSVData(line);
+
+            if (toParse.length != 52) continue;
+
+            if (toParse[1].equals("VA")) {
+                civilian_labour_force2016 += Integer.parseInt(toParse[42]);
+                employed_2016 += Integer.parseInt(toParse[43]);
+                unemployed_2016 += Integer.parseInt(toParse[44]);
+                unemployment_rate2016 += Double.parseDouble(toParse[45]);
+
+                count++;
+            }
+        }
+
+        return new UnemploymentData(civilian_labour_force2016 / count, employed_2016 / count,
+                unemployed_2016 / count, unemployment_rate2016 / count);
+    }
 }
